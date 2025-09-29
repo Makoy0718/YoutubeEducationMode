@@ -1,0 +1,32 @@
+{
+    "name": "YT Education Mode",
+    "version": "0.1.0",
+    "description": "Only playing useful videos",
+    "permissions": ["storage", "tabs", "aiLanguageModel"],
+    "host_permissions": ["https://*.youtube.com/*"],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": ["https://*.youtube.com/*"],
+            "js": ["contentScript.js"]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": ["contentScript.js"],
+            "matches": ["https://*.youtube.com/*"]
+        }
+    ],
+    "action": {
+        "default_icon": {
+            "16": "assets/Youtube_EducationMode_Logo.png",
+            "24": "assets/Youtube_EducationMode_Logo.png",
+            "32": "assets/Youtube_EducationMode_Logo.png"
+        },
+        "default_title": "YT Education Mode",
+        "default_popup": "popup.html"
+    },
+    "manifest_version": 3
+}
